@@ -24,4 +24,5 @@ struct ConstansUtils{
     
     // MARK: - URL
     static let URLusers: String = "https://jsonplaceholder.typicode.com/users"
+    static let URLpost: String = "https://jsonplaceholder.typicode.com/posts?userId="
 }

@@ -20,6 +20,9 @@
 		CA045AE428134FDD005D02E8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AE328134FDD005D02E8 /* constants.swift */; };
 		CA045AE628135023005D02E8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AE528135023005D02E8 /* UserViewModel.swift */; };
 		CA045AEA28139061005D02E8 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AE928139061005D02E8 /* CardItem.swift */; };
+		CA045AEC2813AE4B005D02E8 /* DetailUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AEB2813AE4B005D02E8 /* DetailUser.swift */; };
+		CA045AEE2813B1A6005D02E8 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AED2813B1A6005D02E8 /* PostViewModel.swift */; };
+		CA045AF02813B3AF005D02E8 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA045AEF2813B3AF005D02E8 /* PostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		CA045AE328134FDD005D02E8 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		CA045AE528135023005D02E8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA045AE928139061005D02E8 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		CA045AEB2813AE4B005D02E8 /* DetailUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUser.swift; sourceTree = "<group>"; };
+		CA045AED2813B1A6005D02E8 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		CA045AEF2813B3AF005D02E8 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				CA045AE128134F4B005D02E8 /* UserModel.swift */,
+				CA045AEF2813B3AF005D02E8 /* PostModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CA045AE528135023005D02E8 /* UserViewModel.swift */,
+				CA045AED2813B1A6005D02E8 /* PostViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			children = (
 				CA045AE828139048005D02E8 /* items */,
 				CA045ABB28134622005D02E8 /* ContentView.swift */,
+				CA045AEB2813AE4B005D02E8 /* DetailUser.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -235,14 +244,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA045AEE2813B1A6005D02E8 /* PostViewModel.swift in Sources */,
 				CA045ACD28134624005D02E8 /* ceibaAppApp.swift in Sources */,
 				CA045AD128134624005D02E8 /* Persistence.swift in Sources */,
 				CA045AEA28139061005D02E8 /* CardItem.swift in Sources */,
 				CA045AE428134FDD005D02E8 /* constants.swift in Sources */,
+				CA045AEC2813AE4B005D02E8 /* DetailUser.swift in Sources */,
 				CA045ACB28134624005D02E8 /* ceibaApp.xcdatamodeld in Sources */,
 				CA045AE228134F4B005D02E8 /* UserModel.swift in Sources */,
 				CA045AE628135023005D02E8 /* UserViewModel.swift in Sources */,
 				CA045ACF28134624005D02E8 /* ContentView.swift in Sources */,
+				CA045AF02813B3AF005D02E8 /* PostModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

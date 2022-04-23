@@ -19,7 +19,8 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     @State var searchText = ""
-    let card: Card
+    @State var toDetail = false
+  
     
     var body: some View {
         NavigationView {
@@ -32,62 +33,64 @@ struct ContentView: View {
                    
                 }.padding(10)
                
-                
-                ForEach((userObserver.userListModel).filter({item in
-                    "\(item)".contains( searchText) || searchText.isEmpty
-                }),id: \.self.id ) { item in
-                    
-                    NavigationLink {
-                        
-                        ZStack {
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(.white)
-                                        .shadow(radius: 10)
-
-                                    VStack {
-                                        Text(item.name)
-                                            .font(.title2)
-                                            .foregroundColor(.green)
-
-                                        Text(item.phone)
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                        Text(item.email)
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(20)
-                                    .multilineTextAlignment(.trailing)
-                                }.padding(20)
-                        
-                    } label: {
-                        ZStack {
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(.white)
-                                        .shadow(radius: 10)
-
-                                    VStack {
-                                        Text(item.name)
-                                            .font(.title2)
-                                            .foregroundColor(.green)
-
-                                        Text(item.phone)
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                        Text(item.email)
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(20)
-                                    .multilineTextAlignment(.trailing)
-                                }.padding(20)
-                                
-                            
+                if (userObserver.userListModel.isEmpty){
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .green))
+                                            .scaleEffect(2)
+                                            .padding(6)
+                }else {
+                    ForEach((userObserver.userListModel).filter({item2 in
+                        "\(item2)".contains( searchText) || searchText.isEmpty
+                    }),id: \.self.id ) { item in
                         
                         
+                        
+                        NavigationLink(
+                            destination: DetailUser(item: item),
+                                   
+                                   label: {
+                                       ZStack {
+                                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                       .fill(.white)
+                                                       .shadow(radius: 10)
+
+                                                   VStack (alignment: .leading){
+                                                       VStack{
+                                                           Text(item.name)
+                                                               .font(.title)
+                                                               .foregroundColor(.green)
+                                                               .padding(2)
+
+                                                           HStack{
+                                                               Image(systemName: "phone.fill")
+                                                               Text(item.phone)
+                                                                   .font(.body)
+                                                                   .foregroundColor(.black)
+                                                           }
+                                                           
+                                                          
+                                                           
+                                                           HStack{
+                                                               Image(systemName: "tray.fill")
+                                                               Text(item.email)
+                                                                   .font(.body)
+                                                                   .foregroundColor(.black)
+                                                           }
+                                                       }
+                                                       
+                                                       
+                                                       Text("Ver publicaciones")
+                                                           .font(.title2)
+                                                           .foregroundColor(.green)
+                                                      
+                                                       }.padding(30)
+                                   
+                                                   }
+                                                   .padding(20)
+                                   })
                     }
                 }
-            }
+                
+            }.padding(10)
             
             
             
@@ -155,6 +158,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView( card: Card.example).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

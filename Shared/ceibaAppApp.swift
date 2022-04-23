@@ -13,7 +13,7 @@ struct ceibaAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView( card: Card.example)
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
